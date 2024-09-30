@@ -1,10 +1,12 @@
 % Hua-sheng Xie, huashengxie@gmail.com, 2024-09-28 12:35
 % Accurate fitting of Bremsstrahlung Radiation Gaunt factor (error <1%)
-% t=kB*Te/(me*c^2)
-% P=P0*g, g=Z*gei+gee=sum(Zi^2*ni/ne*gei+gee), P0 given in Eq.(38) of [Xie24]
+% t=kB*Te/(me*c^2), P=P0*g,  P0 given in Eq.(38) of [Xie24]
+% g=Z*gei+gee=sum(Zi^2*ni/ne*gei(t,Zi))+gee(t)
 % Ref: 
 % [Xie24] H.S.Xie, Bremsstrahlung Radiation Power in Fusion Plasmas 
 % Revisited: Towards Accurate Analytical Fitting, PPCF, 2024
+% CB=32*pi/3^1.5*sqrt(2*pi)/(me^1.5*c^3*h)*(qe^2/(4*pi*epsilon0))^3*sqrt(1e3*qe)=4.86e-37
+% Pbrem=CB*(ne)^2.*sqrt(Te).*g [W/m^3], Te in keV, ne in m^-3
 function [g,gei,gee]=fgfit(t,Z)
 
 iFee=1;
